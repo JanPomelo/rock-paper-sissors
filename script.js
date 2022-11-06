@@ -7,4 +7,7 @@ function calcRandomNumber() {
     return Math.floor(Math.random() * 3);
 }
 
+function getComputerChoice() {
+    return computerChoice[calcRandomNumber()];
+}
 
