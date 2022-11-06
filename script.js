@@ -1,4 +1,4 @@
 
 function calcRandomNumber() {
-    return Math.random() * 3;
+    return Math.floor(Math.random() * 3);
 }
