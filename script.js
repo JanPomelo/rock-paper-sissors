@@ -31,11 +31,10 @@ function playRound(userChoice, computerChoice) {
     if (!checkUserInput(userChoice)) {
         return 'Sorry, Wrong input! Just "Rock", "Paper" or "Sissor" is allowed!';
     }
-    userChoice = userChoice.substring(0,1) + userChoice.substring(1);
-    console.log(userChoice);
+    userChoice = userChoice.substring(0,1).toUpperCase() + userChoice.substring(1).toLowerCase();
     let result;
     switch (userChoice) {
-        case 'rock':
+        case 'Rock':
             switch (computerChoice) {
                 case 'Rock':
                     result = 'draw';
@@ -48,7 +47,7 @@ function playRound(userChoice, computerChoice) {
                     break;
             }
             break;
-        case 'paper':
+        case 'Paper':
             switch (computerChoice) {
                 case 'Rock':
                     result = 'win';
@@ -61,7 +60,7 @@ function playRound(userChoice, computerChoice) {
                     break;
             }
             break;
-        case 'sissor':
+        case 'Sissor':
             switch (computerChoice) {
                 case 'Rock':
                     result = 'lose';
