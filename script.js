@@ -27,7 +27,7 @@ function checkUserInput(userInput) {
     else return false;
 }
 
-function playRPS(userChoice, computerChoice) {
+function playRound(userChoice, computerChoice) {
     if (!checkUserInput(userChoice)) {
         return 'Sorry, Wrong input! Just "Rock", "Paper" or "Sissor" is allowed!';
     }
