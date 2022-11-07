@@ -81,6 +81,7 @@ function playRound(userChoice, computerChoice) {
     } else {
         console.log(`It's a draw! Both chosed ${computerChoice}!`);
     }
-    
+    return result;
 }
+
 
