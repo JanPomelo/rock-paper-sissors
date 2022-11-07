@@ -75,12 +75,12 @@ function playRound(userChoice, computerChoice) {
             break;
     }
     if (result === 'win') {
-        return `You win! ${userChoice} beats ${computerChoice}!`;
+        console.log(`You win! ${userChoice} beats ${computerChoice}!`);
     } else if (result === 'lose') {
-        return `You lose! ${computerChoice} beats ${userChoice}!`;
+        console.log(`You lose! ${computerChoice} beats ${userChoice}!`);
     } else {
-        return `It's a draw! Both chosed ${computerChoice}!`;
+        console.log(`It's a draw! Both chosed ${computerChoice}!`);
     }
     
-    
 }
+
