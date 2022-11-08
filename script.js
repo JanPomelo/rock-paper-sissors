@@ -84,4 +84,31 @@ function playRound(userChoice, computerChoice) {
     return result;
 }
 
+function play() {
+    let userWins = 0;
+    let computerWins = 0;
+    let keepGoing = true;
+    while (keepGoing) {
+        let result = playRound(getUserInput(),getComputerChoice());
+        if (result === 'win') {
+            userWins++;
+        } else if (result === 'lose') {
+            computerWins++;
+        }
+        console.log(logStandings(userWins,computerWins));
+        if (userWins >= 5 || computerWins >= 5) {
+            keepGoing = false;
+        }
+    }
+    if (userWins > computerWins) {
+        return `You won the Game ${userWins} to ${computerWins}! Congratulations!` 
+    } else {
+        return `You lost the Game ${userWins} to ${computerWins}. Better luck next time!`;
+    }
+}
 
+function logStandings(userWins, computerWins) {
+    return `Current Standings:
+    User: ${userWins} Wins
+    Computer: ${computerWins} Wins`
+}
