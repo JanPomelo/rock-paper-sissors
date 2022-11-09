@@ -100,15 +100,19 @@ function play() {
             keepGoing = false;
         }
     }
-    if (userWins > computerWins) {
-        return `You won the Game ${userWins} to ${computerWins}! Congratulations!` 
-    } else {
-        return `You lost the Game ${userWins} to ${computerWins}. Better luck next time!`;
-    }
+    return calcResult(userWins,computerWins);
 }
 
 function logStandings(userWins, computerWins) {
     return `Current Standings:
     User: ${userWins} Wins
     Computer: ${computerWins} Wins`
+}
+
+function calcResult(userWins, computerWins) {
+    if (userWins > computerWins) {
+        return `You won the Game ${userWins} to ${computerWins}! Congratulations!` 
+    } else {
+        return `You lost the Game ${userWins} to ${computerWins}. Better luck next time!`;
+    }
 }
