@@ -1,5 +1,4 @@
 //Create Array and store the values Rock Paper and Sissor in it
-
 let computerChoice = [];
 computerChoice[0] = 'Rock';
 computerChoice[1] = 'Paper';
@@ -26,13 +25,16 @@ function checkUserInput(userInput) {
     }
     else return false;
 }
-
+//play one round of RPS
 function playRound(userChoice, computerChoice) {
+    //first check if the userInput is right, if not give a proper alert
     if (!checkUserInput(userChoice)) {
          alert('Sorry, Wrong input! Just "Rock", "Paper" or "Sissor" is allowed!');
          return ''; 
     }
+    //otherwise change the userinput to be written with the first latter capitalized
     userChoice = userChoice.substring(0,1).toUpperCase() + userChoice.substring(1).toLowerCase();
+    //do the calculation of win, draw or lose
     let result;
     switch (userChoice) {
         case 'Rock':
@@ -75,6 +77,7 @@ function playRound(userChoice, computerChoice) {
             }
             break;
     }
+    //log the result with proper text
     if (result === 'win') {
         console.log(`You win! ${userChoice} beats ${computerChoice}!`);
     } else if (result === 'lose') {
@@ -85,10 +88,13 @@ function playRound(userChoice, computerChoice) {
     return result;
 }
 
+//function to play a full game
 function play() {
+    //initialize variables
     let userWins = 0;
     let computerWins = 0;
     let keepGoing = true;
+    //play until one player reaches 5 wins
     while (keepGoing) {
         let result = playRound(getUserInput(),getComputerChoice());
         if (result === 'win') {
@@ -101,15 +107,16 @@ function play() {
             keepGoing = false;
         }
     }
+    //calculate the result
     return calcResult(userWins,computerWins);
 }
-
+//function to log the current standings
 function logStandings(userWins, computerWins) {
     return `Current Standings:
     User: ${userWins} Wins
     Computer: ${computerWins} Wins`
 }
-
+//return the result
 function calcResult(userWins, computerWins) {
     if (userWins > computerWins) {
         return `You won the Game ${userWins} to ${computerWins}! Congratulations!` 
