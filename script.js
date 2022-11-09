@@ -29,7 +29,8 @@ function checkUserInput(userInput) {
 
 function playRound(userChoice, computerChoice) {
     if (!checkUserInput(userChoice)) {
-        return 'Sorry, Wrong input! Just "Rock", "Paper" or "Sissor" is allowed!';
+         alert('Sorry, Wrong input! Just "Rock", "Paper" or "Sissor" is allowed!');
+         return ''; 
     }
     userChoice = userChoice.substring(0,1).toUpperCase() + userChoice.substring(1).toLowerCase();
     let result;
