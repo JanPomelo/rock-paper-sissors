@@ -1,3 +1,12 @@
+const buttons = Array.from(document.querySelectorAll('button'));
+
+buttons.forEach(button => {
+    button.addEventListener('click',function () {
+        playRound(button.id.toLowerCase(),getComputerChoice())
+    });
+});
+
+
 //Create Array and store the values Rock Paper and Sissor in it
 let computerChoice = [];
 computerChoice[0] = 'Rock';
