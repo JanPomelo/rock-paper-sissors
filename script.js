@@ -1,8 +1,9 @@
 const buttons = Array.from(document.querySelectorAll('button'));
-
+const score = document.querySelector('#Score');
+const roundResult = document.querySelector('#RoundResult');
 buttons.forEach(button => {
     button.addEventListener('click',function () {
-        playRound(button.id.toLowerCase(),getComputerChoice())
+        playRound(button.id.toLowerCase(),getComputerChoice());
     });
 });
 
@@ -88,11 +89,11 @@ function playRound(userChoice, computerChoice) {
     }
     //log the result with proper text
     if (result === 'win') {
-        console.log(`You win! ${userChoice} beats ${computerChoice}!`);
+        roundResult.textContent = (`You win! ${userChoice} beats ${computerChoice}!`);
     } else if (result === 'lose') {
-        console.log(`You lose! ${computerChoice} beats ${userChoice}!`);
+        roundResult.textContent = (`You lose! ${computerChoice} beats ${userChoice}!`);
     } else {
-        console.log(`It's a draw! Both chosed ${computerChoice}!`);
+        roundResult.textContent = (`It's a draw! Both chosed ${computerChoice}!`);
     }
     return result;
 }
