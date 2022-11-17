@@ -89,7 +89,7 @@ function playRound(userChoice, computerChoice) {
 }
 
 //function to play a full game
-function play() {
+/*function play() {
     //initialize variables
     let userWins = 0;
     let computerWins = 0;
@@ -115,7 +115,7 @@ function logStandings(userWins, computerWins) {
     return `Current Standings:
     User: ${userWins} Wins
     Computer: ${computerWins} Wins`
-}
+}*/
 //return the result
 function calcResult(userWins, computerWins) {
     if (userWins > computerWins) {
