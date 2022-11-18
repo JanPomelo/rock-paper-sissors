@@ -8,6 +8,7 @@ buttons.forEach(button => {
 });
 
 
+
 //Create Array and store the values Rock Paper and Sissor in it
 let computerChoice = [];
 computerChoice[0] = 'Rock';
