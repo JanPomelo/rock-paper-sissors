@@ -1,0 +1,14 @@
+body {
+    background-color: antiquewhite;
+}
+
+#container, #heading, #results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#Start {
+    margin-bottom: 20px;
+}
