@@ -15,6 +15,7 @@ start.addEventListener('click',startGame,{once: true});
 function startGame () {
     userWins = 0;
     computerWins = 0;
+    start.setAttribute('disabled','disabled');
     buttons.forEach(button => {
         button.removeAttribute('disabled');
     });
@@ -141,6 +142,7 @@ function calcResult() {
         buttons.forEach(button => {
             button.setAttribute('disabled','disabled');
         });
+        start.removeAttribute('disabled');
         start.addEventListener('click',startGame,{once: true});
     }
 }
