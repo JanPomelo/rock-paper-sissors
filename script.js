@@ -1,11 +1,16 @@
-const buttons = Array.from(document.querySelectorAll('button'));
+const buttons = Array.from(document.querySelectorAll('#choices button'));
 const score = document.querySelector('#Score');
 const roundResult = document.querySelector('#RoundResult');
-buttons.forEach(button => {
-    button.addEventListener('click',function () {
-        playRound(button.id.toLowerCase(),getComputerChoice());
+const start = document.querySelector('#Start');
+
+start.addEventListener('click',startGame,{once: true});
+function startGame () {
+    buttons.forEach(button => {
+        button.addEventListener('click',function () {
+            playRound(button.id.toLowerCase(),getComputerChoice());
+        });
     });
-});
+}
 
 
 
