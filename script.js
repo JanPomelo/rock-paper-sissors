@@ -3,13 +3,22 @@ const score = document.querySelector('#Score');
 const roundResult = document.querySelector('#RoundResult');
 const start = document.querySelector('#Start');
 
+
+buttons.forEach(button => {
+    button.setAttribute('disabled','disabled');
+    button.addEventListener('click',function () {
+        playRound(button.id.toLowerCase(),getComputerChoice());
+    });
+});
+
 start.addEventListener('click',startGame,{once: true});
 function startGame () {
+    userWins = 0;
+    computerWins = 0;
     buttons.forEach(button => {
-        button.addEventListener('click',function () {
-            playRound(button.id.toLowerCase(),getComputerChoice());
-        });
+        button.removeAttribute('disabled');
     });
+    console.log(computerWins);
 }
 
 
@@ -122,6 +131,7 @@ function logStandings() {
 }
 //return the result
 function calcResult() {
+
     if (userWins >= 5 || computerWins >= 5) {
         if (userWins > computerWins) {
             score.textContent =  `You won the Game ${userWins} to ${computerWins}! Congratulations!` 
@@ -130,6 +140,7 @@ function calcResult() {
         }
         buttons.forEach(button => {
             button.setAttribute('disabled','disabled');
-        })
+        });
+        start.addEventListener('click',startGame,{once: true});
     }
 }
