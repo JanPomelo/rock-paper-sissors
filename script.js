@@ -3,7 +3,6 @@ const score = document.querySelector('#Score');
 const roundResult = document.querySelector('#RoundResult');
 const start = document.querySelector('#Start');
 
-
 buttons.forEach(button => {
     button.setAttribute('disabled','disabled');
     button.addEventListener('click',function () {
@@ -13,6 +12,8 @@ buttons.forEach(button => {
 
 start.addEventListener('click',startGame,{once: true});
 function startGame () {
+    roundResult.textContent = '';
+    score.textContent = '';
     userWins = 0;
     computerWins = 0;
     start.setAttribute('disabled','disabled');
@@ -40,31 +41,9 @@ function calcRandomNumber() {
 function getComputerChoice() {
     return computerChoice[calcRandomNumber()];
 }
-
-//register userInput
-/*function getUserInput() {
-    let userInput = prompt('Please choose between Rock, paper, or Sissor:').toLowerCase();
-    return userInput;
-}
-
-//check if userInput is either Rock, Paper or Sissor
-function checkUserInput(userInput) {
-    if (userInput === 'rock' || userInput === 'paper' || userInput === 'sissor') {
-        return true;
-    }
-    else return false;
-}
-*/
-
 //play one round of RPS
 function playRound(userChoice, computerChoice) {
-    //first check if the userInput is right, if not give a proper alert
-    /*if (!checkUserInput(userChoice)) {
-         alert('Sorry, Wrong input! Just "Rock", "Paper" or "Sissor" is allowed!');
-         return ''; 
-    }
-    */
-    //otherwise change the userinput to be written with the first latter capitalized
+ 
     userChoice = userChoice.substring(0,1).toUpperCase() + userChoice.substring(1).toLowerCase();
     //do the calculation of win, draw or lose
     let result;
