@@ -4,14 +4,22 @@ const roundResult = document.querySelector('#RoundResult');
 const start = document.querySelector('#Start');
 
 imgs.forEach(img => {
+    img.addEventListener("transitionend", removeTransition)
     img.addEventListener('click',function () {
         if (img.classList.contains('playing')) {
         playRound(img.id.toLowerCase(),getComputerChoice());
+        img.classList.add('currentChoice');
     }
 });
 });
 
 start.addEventListener('click',startGame,{once: true});
+
+function removeTransition(e) {
+    if (e.propertyName !== "transform") return;
+    e.target.classList.remove("currentChoice");
+  }
+
 function startGame () {
     roundResult.textContent = '';
     score.textContent = '';
