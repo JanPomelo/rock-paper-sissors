@@ -1,13 +1,14 @@
-const buttons = Array.from(document.querySelectorAll('#choices button'));
+const imgs = Array.from(document.querySelectorAll('img'));
 const score = document.querySelector('#Score');
 const roundResult = document.querySelector('#RoundResult');
 const start = document.querySelector('#Start');
 
-buttons.forEach(button => {
-    button.setAttribute('disabled','disabled');
-    button.addEventListener('click',function () {
-        playRound(button.id.toLowerCase(),getComputerChoice());
-    });
+imgs.forEach(img => {
+    img.addEventListener('click',function () {
+        if (img.classList.contains('playing')) {
+        playRound(img.id.toLowerCase(),getComputerChoice());
+    }
+});
 });
 
 start.addEventListener('click',startGame,{once: true});
@@ -17,8 +18,9 @@ function startGame () {
     userWins = 0;
     computerWins = 0;
     start.setAttribute('disabled','disabled');
-    buttons.forEach(button => {
-        button.removeAttribute('disabled');
+    imgs.forEach(img => {
+        img.classList.remove('notPlaying');
+        img.classList.add('playing');
     });
     console.log(computerWins);
 }
@@ -118,10 +120,11 @@ function calcResult() {
         } else {
             score.textContent =  `You lost the Game ${userWins} to ${computerWins}. Better luck next time!`;
         }
-        buttons.forEach(button => {
-            button.setAttribute('disabled','disabled');
-        });
         start.removeAttribute('disabled');
         start.addEventListener('click',startGame,{once: true});
+        imgs.forEach(img => {
+            img.classList.remove('playing');
+            img.classList.add('notPlaying');
+        })
     }
 }
